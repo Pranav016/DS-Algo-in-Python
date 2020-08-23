@@ -26,10 +26,7 @@ def check_ab(s):
 
 
 s=input()
-if s[0]=='a':
-    if check_ab(s):
-        print('true')
-    else:
-        print('false')
+if check_ab(s):
+    print('true')
 else:
     print('false')
