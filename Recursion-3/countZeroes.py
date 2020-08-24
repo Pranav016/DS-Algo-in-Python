@@ -1,16 +1,15 @@
 c=0
-def noz(n):
-    global c
+def countz(n):
     if n>0:
-       ld=n%10
-       n=n//10
-       if ld==0:
-          c+=1
-       noz(n)
+        global c
+        if n%10==0:
+            c+=1
+        countz(n//10)
     return c
 
 n=int(input())
-print(noz(n))
+print(countz(n))
+
 
 
 #alternate method-
