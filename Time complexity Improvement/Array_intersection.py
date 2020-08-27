@@ -1,3 +1,8 @@
+# Given two random integer arrays, print their intersection. That is, print all the elements that are present in both the given arrays.
+# Input arrays can contain duplicate elements.
+
+# time complexity for this solution is O(mlog(m) + nlog(n)) or O(nlog(n)) if m=n
+
 def common(a,b):
     i=j=0
     while i<len(a) and j<len(b):
