@@ -1,3 +1,16 @@
+# sample test case-
+# 9
+# 1 3 6 2 5 4 3 2 4
+# 7
+# sample output-
+# 1 6
+# 3 4
+# 3 4
+# 2 5
+# 2 5
+# 3 4
+# 3 4
+
 def merge(a,x,y):
     i=j=k=0
     while i<len(x) and j<len(y):
@@ -33,16 +46,22 @@ def pairSum(a, x):
     i=0
     j=len(a)-1
     while i<j:
-        # print("ith- ",a[i])
-        # print("jth- ",a[j])
-        j=len(a)-1
-        if a[i]+a[j]==x:
-            print("{} {}".format(a[i],a[j]))
-            i+=1
-        elif a[i]+a[j]>x:
+        if a[i]+a[j]>x:
             j-=1
         elif a[i]+a[j]<x:
             i+=1
+        elif a[i]+a[j]==x:
+            print("{} {}".format(a[i],a[j]))
+            k=j
+            while a[k]!=a[k-1]:
+                    print("{} {}".format(a[i],a[k]))
+                    k-=1
+            if a[i]==a[i+1]:
+                if k==j:
+                    j+=1
+                    i+=1
+                else:
+                    i+=1
 
 # Main
 n=int(input())

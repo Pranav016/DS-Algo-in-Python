@@ -34,19 +34,20 @@ def triplet(a,x):
     j=len(a)-1
     k=len(a)//2
     while i<j:
+        while 
         # print("all- {} {} {}".format(a[i],a[k],a[j]))
-        if k<=i or k>=j:
-            i+=1
-            j=len(a)-1
-            k=len(a)//2
-        elif a[i]+a[j]+a[k]>x:
-            k-=1
-        elif a[i]+a[j]+a[k]<x:
-            k+=1
-        elif a[i]+a[j]+a[k]==x:
-            print("{} {} {}".format(a[i],a[k],a[j]))
-            j-=1
-            k=len(a)//2
+        # if k<=i or k>=j:
+        #     i+=1
+        #     j=len(a)-1
+        #     k=len(a)//2
+        # elif a[i]+a[j]+a[k]>x:
+        #     k-=1
+        # elif a[i]+a[j]+a[k]<x:
+        #     k+=1
+        # elif a[i]+a[j]+a[k]==x:
+        #     print("{} {} {}".format(a[i],a[k],a[j]))
+        #     j-=1
+        #     k=len(a)//2
 # Main
 n=int(input())
 arr=list(int(i) for i in input().strip().split(' '))
