@@ -11,57 +11,48 @@
 # 3 4
 # 3 4
 
-def merge(a,x,y):
-    i=j=k=0
-    while i<len(x) and j<len(y):
-        if x[i]>y[j]:
-            a[k]=y[j]
-            k+=1
-            j+=1
+def pairSum(a,x):
+
+    arr.sort()
+
+    start=0
+    end=len(a)-1
+    while start<end:
+
+        if a[start]+a[end]>x:
+            end-=1
+        elif a[start]+a[end]<x:
+            start+=1
         else:
-            a[k]=x[i]
-            k+=1
-            i+=1
-    while i<len(x):
-        a[k]=x[i]
-        k+=1
-        i+=1
-    while j<len(y):
-        a[k]=y[j]
-        k+=1
-        j+=1
-
-def merge_sort(a):
-    if len(a)==0 or len(a)==1:
-        return
-    mid=len(a)//2
-    x=a[:mid]
-    y=a[mid:]
-    merge_sort(x)
-    merge_sort(y)
-    merge(a,x,y)
-
-def pairSum(a, x):
-    merge_sort(a)
-    i=0
-    j=len(a)-1
-    while i<j:
-        if a[i]+a[j]>x:
-            j-=1
-        elif a[i]+a[j]<x:
-            i+=1
-        elif a[i]+a[j]==x:
-            print("{} {}".format(a[i],a[j]))
-            k=j
-            while a[k]!=a[k-1]:
-                    print("{} {}".format(a[i],a[k]))
-                    k-=1
-            if a[i]==a[i+1]:
-                if k==j:
-                    j+=1
-                    i+=1
+            count1=0
+            count2=0
+        
+            for ptr in range(start,end):
+                if a[ptr]==a[start]:
+                    count1+=1
                 else:
-                    i+=1
+                    break
+
+            for ptr in range(end,start,-1):
+                if a[ptr]==a[end]:
+                    count2+=1
+                else:
+                    break
+            
+            combinations=count1*count2
+
+            if a[start]==a[end]:
+                combinations=(a[end]-a[start]+1)*(a[end]-a[start])//2
+
+            for i in range(combinations):
+                print("{} {}".format(a[start],a[end]))
+                i+=1
+
+            start+=1
+            end-=count2
+
+
+
 
 # Main
 n=int(input())
