@@ -41,17 +41,16 @@ def pairSum(a,x):
             
             combinations=count1*count2
 
+
             if a[start]==a[end]:
-                combinations=(a[end]-a[start]+1)*(a[end]-a[start])//2
+                combinations=(end-start+1)*(end-start)//2
 
             for i in range(combinations):
                 print("{} {}".format(a[start],a[end]))
                 i+=1
 
-            start+=1
+            start+=count1
             end-=count2
-
-
 
 
 # Main
