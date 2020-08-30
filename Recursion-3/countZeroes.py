@@ -1,3 +1,5 @@
+# Given an integer N, count and return the number of zeros that are present in the given integer using recursion.
+
 c=0
 def countz(n):
     if n>0:
