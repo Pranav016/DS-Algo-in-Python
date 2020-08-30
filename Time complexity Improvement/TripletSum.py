@@ -1,6 +1,16 @@
+# Given a random integer array and a number x. Find and print the triplets of elements in the array which sum to x.
+# While printing a triplet, print the smallest element first.
+
+# sample input
 # 7
 # 1 2 3 4 5 6 7 
 # 12
+# sample output
+# 1 4 7
+# 1 5 6
+# 2 3 7
+# 2 4 6
+# 3 4 5
 
 def triplet(arr, sum):
     
@@ -43,6 +53,7 @@ def triplet(arr, sum):
                     
                 for k in range(combinations):
                     print(arr[i], arr[start], arr[end])
+                    k+=1
                     
                 start += 1
                 end -= count2

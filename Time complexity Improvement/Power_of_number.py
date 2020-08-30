@@ -3,6 +3,16 @@
 
 # time complexity of this solution has been reduced
 
+# easier method-
+
+def power(x,n):
+    if n>0:
+        return x*power(x,n-1)
+    else:
+        return 1
+
+# alternate method-
+
 def power(x, n):
     if n<=0:
         return 1

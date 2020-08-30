@@ -2,6 +2,8 @@
 # Element at index i is not included in either part.
 # If more than one equilibrium index is present, you need to return the first one. And return -1 if no equilibrium index is present.
 
+# time complexity of this solution is O(n)
+
 left=0
 right=0
 def lsum(a,s,e):

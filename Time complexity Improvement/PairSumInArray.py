@@ -1,3 +1,7 @@
+# Given a random integer array A and a number x. Find and print the pair of elements in the array which sum to x.
+# Array A can contain duplicate elements.
+# While printing a pair, print the smaller element first.
+
 # sample test case-
 # 9
 # 1 3 6 2 5 4 3 2 4
@@ -11,9 +15,11 @@
 # 3 4
 # 3 4
 
+# time complexity is O(nlogn)
+
 def pairSum(a,x):
 
-    arr.sort()
+    a.sort()
 
     start=0
     end=len(a)-1
