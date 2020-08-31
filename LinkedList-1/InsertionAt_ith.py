@@ -1,9 +1,8 @@
-# For a given a singly linked list of integers and a position 'i', print the node data at the 'i-th' position.
-
 class Node:
     def __init__(self,data):
         self.data=data
         self.next=None
+
 
 def inputLL():
     llist=[int(i) for i in input().split()]
@@ -21,6 +20,7 @@ def inputLL():
         else:
             return head
 
+
 def lengthLL(head):
     count=0
     while head is not None:
@@ -28,18 +28,39 @@ def lengthLL(head):
         head=head.next
     return count
 
-def findElement(head,i):
-    if head==None or i>lengthLL(head):
-        return
-    while i>0:
+
+def insertion(head,i,data):
+    if i<0 or i>lengthLL(head):
+        return head
+    newNode=Node(data)
+    if head==None:
+        head=newNode
+    else:
+        prev=None
+        curr=head
+        while i>0:
+            prev=curr
+            curr=curr.next
+            i-=1
+        if prev!=None:
+            prev.next=newNode
+        else:
+            head=newNode
+        newNode.next=curr
+    return head
+
+
+def printLL(head):
+    while head is not None:
+        print(head.data, end=" ")
         head=head.next
-        i-=1
-    print(head.data)
 
 # main
 t=int(input())
 while t>0:
     head=inputLL()
     i=int(input())
-    findElement(head,i)
+    data=int(input())
+    head=insertion(head,i,data)
+    printLL(head)
     t-=1
