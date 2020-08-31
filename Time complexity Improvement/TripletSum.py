@@ -12,6 +12,8 @@
 # 2 4 6
 # 3 4 5
 
+# time complexity is O(nlogn)
+
 def triplet(arr, sum):
     
     arr.sort() 
