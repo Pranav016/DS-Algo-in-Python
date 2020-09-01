@@ -1,4 +1,4 @@
-# For a given a singly linked list of integers and a position 'i', print the node data at the 'i-th' position.
+# You have been given a singly linked list of integers. Write a function that returns the index/position of an integer data denoted by 'N' (if it exists). Return -1 otherwise.
 
 class Node:
     def __init__(self,data):
@@ -31,19 +31,21 @@ def lengthLL(head):
     return count
 
 
-def findElement(head,i):
-    if head==None or i>=lengthLL(head):
-        return -1
-    while i>0:
+def findElement(head,data):
+    count=0
+    while head is not None:
+        if head.data==data:
+            return count
+        count+=1
         head=head.next
-        i-=1
-    print(head.data)
+    return -1
+    
 
 
 # main
 t=int(input())
 while t>0:
     head=inputLL()
-    i=int(input())
-    findElement(head,i)
+    data=int(input())
+    print(findElement(head,data))
     t-=1
