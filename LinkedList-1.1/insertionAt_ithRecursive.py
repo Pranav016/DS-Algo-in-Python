@@ -1,3 +1,5 @@
+# time complexity is O(i) and O(n) for worst case
+
 class Node:
     def __init__(self,data):
         self.data=data
@@ -32,21 +34,11 @@ def lengthLL(head):
 def insertion(head,i,data):
     if i<0 or i>lengthLL(head):
         return head
-    newNode=Node(data)
-    if head==None:
-        head=newNode
-    else:
-        prev=None
-        curr=head
-        while i>0:
-            prev=curr
-            curr=curr.next
-            i-=1
-        if prev!=None:
-            prev.next=newNode
-        else:
-            head=newNode
-        newNode.next=curr
+    elif i==0:
+        newNode=Node(data)
+        newNode.next=head
+        return newNode
+    head.next=insertion(head.next,i-1,data)
     return head
 
 
