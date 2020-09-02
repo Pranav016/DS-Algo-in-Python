@@ -1,3 +1,5 @@
+# You have been given a singly linked list of integers where the elements are sorted in ascending order. Write a function that removes the consecutive duplicate values such that the given list only contains unique elements and returns the head to the updated list.
+
 class Node:
     def __init__(self,data):
         self.data=data
@@ -31,11 +33,16 @@ def lengthLL(head):
 def duplicates(head):
     if head is None or head.next is None:
         return head
-    ptr=head
-    while ptr.next.data==ptr.data:
-        print(ptr.data)
-        ptr=ptr.next
-    head.next=duplicates(ptr.next)
+    t1=head
+    t2=head.next
+    while t2!=None:
+        if t1.data==t2.data:
+            t2=t2.next
+        else:
+            t1.next=t2
+            t1=t2
+            t2=t2.next
+    t1.next=t2
     return head
 
 
@@ -51,6 +58,5 @@ t=int(input())
 while t>0:
     head=inputLL()
     head=duplicates(head)
-    # print(head.data)
     printLL(head)
     t-=1
