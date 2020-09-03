@@ -63,7 +63,21 @@ def mergeLL(h1,h2):
         newTail.next=h2
 
     return newHead
-
+def sort_merge(a, b): 
+        result = None
+          
+        # Base cases 
+        if a == None: 
+            return b 
+        if b == None: 
+            return a  
+        if a.data <= b.data: 
+            result = a 
+            result.next = sort_merge(a.next, b) 
+        else: 
+            result = b 
+            result.next = sort_merge(a, b.next) 
+        return result 
 
 def mergeSort(head):
     if head is None or head.next is None:
@@ -72,9 +86,9 @@ def mergeSort(head):
     h1=head
     h2=mid.next
     mid.next=None
-    mergeSort(h1)
-    mergeSort(h2)
-    return mergeLL(h1,h2)
+    l=mergeSort(h1)
+    r=mergeSort(h2)
+    return sort_merge(l, r)
 
 
 def printLL(head):
