@@ -21,39 +21,60 @@ def inputLL():
             return head
 
 
-def merge(h1, h2):
-    # if h1 is None:
-    #     return h2
-    # elif h2 is None:
-    #     return h1
+def midLL(head):
+    if head is None or head.next is None:
+        return head
+    slow=head
+    fast=head
+    while fast.next is not None and fast.next.next is not None:
+        slow=slow.next
+        fast=fast.next.next
+    return slow
+
+
+def mergeLL(h1,h2):
+    if h1 is None:
+        return h2
+    if h2 is None:
+        return h1
     newHead=None
     newTail=None
     while h1 is not None and h2 is not None:
         if h1.data>h2.data:
-            if newHead==None:
+            if newHead is None:
                 newHead=h2
                 newTail=h2
             else:
-                newTail.next=h2
-                newTail=newTail.next    
-            h2=h2.next    
-            
+                newTail=h2
+                newTail=newTail.next
+            h2=h2.next
         elif h1.data<=h2.data:
-            if newHead==None:
+            if newHead is None:
                 newHead=h1
                 newTail=h1
             else:
-                newTail.next=h1
+                newTail=h1
                 newTail=newTail.next
             h1=h1.next
-    
+
     if h1 is not None:
         newTail.next=h1
-    
     if h2 is not None:
         newTail.next=h2
 
     return newHead
+
+
+def mergeSort(head):
+    if head is None or head.next is None:
+        return head
+    mid=midLL(head)
+    h1=head
+    h2=mid.next
+    mid.next=None
+    mergeSort(h1)
+    mergeSort(h2)
+    return mergeLL(h1,h2)
 
 
 def printLL(head):
@@ -62,8 +83,8 @@ def printLL(head):
         head=head.next
     print()
 
+
 # main
-head1=inputLL()
-head2=inputLL()
-head=merge(head1,head2)
+head=inputLL()
+head=mergeSort(head)
 printLL(head)
