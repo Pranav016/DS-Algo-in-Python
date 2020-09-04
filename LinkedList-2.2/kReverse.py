@@ -27,50 +27,35 @@ def lengthLL(head):
         head=head.next
     return count
 
-def swapNodes(head,m,n):
-    if head is None:
-        return head
-    x=m
-    y=n
-    m=min(x,y)
-    n=max(x,y)
-    i=0
-    temp=head
-    p1=None
-    while(i<m):
-        if temp is None:
-            break
-        p1=temp
-        temp=temp.next
-        i=i+1        
-    c1=temp
-    i=0
-    temp1=head
-    p2=None
-    while i<n:
-        if temp1 is None:
-            break
-        p2=temp1
-        temp1=temp1.next
-        i=i+1
-    c2=temp1
-   
-    temp=c2.next
-    if p1 is not None and p2 is not None:    
-        p1.next=c2
-        p2.next=c1
-        c2.next=c1.next
-        c1.next=temp
-     
-    if p1 is None:
-        p2.next=c1
-        head=c2
-        c2.next=c1.next
-        c1.next=temp
-       
-    return head
-        
 
+def reverseLL(head):
+    if head is None or head.next is None:
+        return head,head
+    prev=None
+    curr=head
+    next1=head.next
+    while curr is not None:
+        curr.next=prev
+        prev=curr
+        curr=next1
+        if curr:
+            next1=curr.next
+    return prev,head
+
+def kReverse(head,i):
+    if head is None or head.next is None:
+        return head
+    x=i
+    h1=head
+    t1=head
+    while x>1 and t1.next is not None:
+        t1=t1.next
+        x-=1
+    newHead=t1.next
+    t1.next=None
+    h1,t1=reverseLL(h1)
+    t1.next=kReverse(newHead,i)
+    return h1
 
 def printLL(head):
     while head is not None:
@@ -80,6 +65,6 @@ def printLL(head):
 
 # main
 head=inputLL()
-i,j=list(int(i) for i in input().split())
-head=swapNodes(head,i,j)
+i=int(input())
+head=kReverse(head,i)
 printLL(head)
