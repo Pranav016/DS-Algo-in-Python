@@ -24,20 +24,25 @@ def inputLL():
 def deleteN(head,m,n):
     if head is None:
         return head
-    
     newHead=None
+    newTail=None
     while head is not None:
         i=0
         while i<m and head is not None:
             if newHead is None:
                 newHead=head
+                newTail=head
             else:
-                newHead.next=head
-                newHead=newHead.next
+                newTail.next=head
+                newTail=newTail.next
+            i+=1
+            head=head.next
         i=0
         while i<n and head is not None:
+            i+=1
             head=head.next
-    newHead.next=None
+    if newTail:
+        newTail.next=None
     return newHead
 
 def printLL(head):
