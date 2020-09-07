@@ -1,3 +1,6 @@
+# Arrange elements in a given Linked List such that, all even numbers are placed after odd numbers. Respective order of elements should remain same.
+
+
 class Node:
     def __init__(self,data):
         self.data=data

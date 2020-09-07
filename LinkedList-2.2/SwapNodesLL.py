@@ -1,3 +1,6 @@
+# Given a linked list, i & j, swap the nodes that are present at i & j position in the LL. You need to swap the entire nodes, not just the data.
+
+
 class Node:
     def __init__(self,data):
         self.data=data

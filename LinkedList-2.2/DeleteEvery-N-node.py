@@ -1,3 +1,6 @@
+# Given a linked list and two integers M and N. Traverse the linked list such that you retain M nodes then delete next N nodes, continue the same until end of the linked list. That is, in the given linked list you need to delete N nodes after every M nodes.
+
+
 class Node:
     def __init__(self,data):
         self.data=data
