@@ -46,6 +46,27 @@ def appendLL(head,i):
     temp.next=None
     return head
 
+# alternate method-
+ 
+#  def appendLL(head,i):
+#     l=lengthLL(head)
+#     if i<=0 or i>=l:
+#         return head
+#     p=l-i
+#     prev=None
+#     curr=head
+#     while p>0:
+#         prev=curr
+#         curr=curr.next
+#         p-=1
+#     prev.next=None
+#     temp=curr
+#     while temp.next is not None:
+#         temp=temp.next
+#     temp.next=head
+#     head=curr
+#     return head
+
 
 def printLL(head):
     while head is not None:

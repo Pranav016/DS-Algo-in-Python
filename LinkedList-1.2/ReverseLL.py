@@ -1,8 +1,6 @@
-# You have been given a singly linked list of integers. Write a function to print the list in a reverse order.
-# To explain it further, you need to start printing the data from the tail and move towards the head of the list, printing the head data at the end.
+# You have been given a head to a singly linked list of integers. Write a function check to whether the list given is a 'Palindrome' or not.
 
-
-import sys
+# time complexity is O(n) and space complexity is O(1)
 
 class Node:
     def __init__(self,data):
@@ -27,18 +25,37 @@ def inputLL():
             return head
 
 
-def printReverse(head):
-    if head is None:
-        return 
-    printReverse(head.next)
-    print(head.data, end=" ")
+def lengthLL(head):
+    count=0
+    while head is not None:
+        count+=1
+        head=head.next
+    return count
 
 
-# main
-sys.setrecursionlimit(1000000)
+def reverseLL(head):
+    if head is None or head.next is None:
+        return head
+    prev=None
+    next1=head.next
+    while head is not None:
+        head.next=prev
+        prev=head
+        head=next1
+        if head is not None:
+            next1=head.next
+    return prev
+
+def printLL(head):
+    while head is not None:
+        print(head.data, end=" ")
+        head=head.next
+    print() 
+
+
+    # main
 t=int(input())
 while t>0:
     head=inputLL()
-    printReverse(head)
-    print()
-    t-=1
+    head=reverseLL(head)
+    printLL(head)
