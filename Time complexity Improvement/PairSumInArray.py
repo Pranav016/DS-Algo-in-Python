@@ -33,19 +33,19 @@ def pairSum(a,x):
             count1=0
             count2=0
         
-            for ptr in range(start,end):
+            for ptr in range(start,end): # counting duplicates
                 if a[ptr]==a[start]:
                     count1+=1
                 else:
                     break
 
-            for ptr in range(end,start,-1):
+            for ptr in range(end,start,-1): # counting duplicates
                 if a[ptr]==a[end]:
                     count2+=1
                 else:
                     break
             
-            combinations=count1*count2
+            combinations=count1*count2 # total combinations formed by the duplicates
 
 
             if a[start]==a[end]:

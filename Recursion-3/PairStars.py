@@ -13,5 +13,19 @@ def stars(s,i):
 s=str(input())
 stars(s,0)
 
+# alternate- 
+
+def stars(s):
+    if len(s)<=1:
+        print(s[0])
+        return
+    print(s[0],end='')
+    if s[0]==s[1]:
+        print('*',end='')
+    stars(s[1:])
+
+s=str(input())
+stars(s)
+
 #sample input - hello
 #sample output- hel*lo
