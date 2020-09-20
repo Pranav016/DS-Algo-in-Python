@@ -25,7 +25,7 @@ def inputLL():
 
 
 def reverseLL(prev,next1): # here we are able to iterate over the LL while maintaing two pointers, prev that always is one step behind next1
-    if next is None:
+    if next1 is None:
         global head
         head=prev
         return
