@@ -47,6 +47,8 @@ def evenOdd(head):
                 oddT.next=head
                 oddT=oddT.next
         head=head.next
+    if evenH:
+        evenT.next=None
     if oddH:
         oddT.next=evenH
         return oddH
