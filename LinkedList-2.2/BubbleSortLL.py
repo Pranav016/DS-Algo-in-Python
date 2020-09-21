@@ -1,12 +1,3 @@
-# Sort a given linked list using Bubble Sort (iteratively). While sorting, you need to swap the entire nodes, not just the data.
-# You don't need to print the elements, just sort the elements and return the head of updated LL.
-# Input format : Linked list elements (separated by space and terminated by -1)`
-
-# Sample Input 1 :
-# 1 4 5 2 -1
-# Sample Output 1 :
-# 1 2 4 5
-
 class Node:
     def __init__(self,data):
         self.data=data
@@ -40,24 +31,26 @@ def bubble_sort(head):
     if head is None or head.next is None:
         return head
     l=lengthLL(head)
-    for i in range(l):
-        p1=None
-        c1=head
-        for j in range(l-1):
-            if c1 and c1.next and c1.data>c1.next.data:
-                temp=c1.next
-                if p1 is None:
-                    c1.next=c1.next.next
-                    temp.next=c1
+    i=j=0
+    while i<l-1:
+        j=0
+        prev=None
+        curr=head
+        while j<l:
+            if curr and curr.next and curr.data>curr.next.data:
+                temp=curr.next
+                if prev is None:
+                    curr.next=curr.next.next
+                    temp.next=curr
                     head=temp
-                elif p1 is not None:
-                    c1.next=c1.next.next
-                    temp.next=c1
-                    p1.next=temp
+                elif prev is not None:
+                    curr.next=curr.next.next
+                    temp.next=curr
+                    prev.next=temp
             j+=1
-            p1=c1
-            if c1:
-                c1=c1.next
+            prev=curr
+            if curr:
+                curr=curr.next
         i+=1
     return head
 
