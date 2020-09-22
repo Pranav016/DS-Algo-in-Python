@@ -23,9 +23,10 @@ sys.setrecursionlimit(1000000)
 s1=[]
 s2=[]
 n=int(input())
-ele=list(int(i) for i in input().split())
-for i in ele:
-    s1.append(i)
-reverse(s1,s2)
-while s1:
-    print(s1.pop(), end=" ")
+if n>0:
+    ele=list(int(i) for i in input().split())
+    for i in ele:
+        s1.append(i)
+    reverse(s1,s2)
+    while s1:
+        print(s1.pop(), end=" ")

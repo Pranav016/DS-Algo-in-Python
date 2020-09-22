@@ -1,3 +1,5 @@
+# stack implementation using Linked list
+
 from sys import stdin
 
 class Node:
@@ -7,7 +9,7 @@ class Node:
 
 class Stack:
 
-    def ___init__(self):
+    def __init__(self):
         self.__count=0
         self.__head=None
 
@@ -19,7 +21,7 @@ class Stack:
         
     def pop(self):
         if self.isEmpty():
-            return
+            return -1
         else:
             temp=self.__head
             self.__head=self.__head.next
@@ -28,7 +30,7 @@ class Stack:
 
     def top(self):
         if self.isEmpty():
-            return 
+            return -1
         else:
             return self.__head.data
         
