@@ -18,7 +18,7 @@ class Queue:
     def front(self):
         if self.__count==0:
             return -1
-        return self.__queue[self.__front]
+        return self.__queue[self.__front-1]
 
     def size(self):
         return self.__count

@@ -14,13 +14,11 @@ class  q2s:
     def dequeue(self):
         if self.r.empty():
             return -1
+        y=self.r.get()
         while not self.r.empty():
             x=self.r.get()
             self.s.put(x)
-        y=self.s.get()
-        while not self.s.empty():
-            x=self.s.get()
-            self.r.put(x)
+        self.s,self.r=self.r,self.s
         self.count-=1
         return y
 
@@ -33,10 +31,8 @@ class  q2s:
         while not self.r.empty():
             x=self.r.get()
             self.s.put(x)
-        while not self.s.empty():
-            y=self.s.get()
-            self.r.put(y)
-            return x
+        self.r,self.s=self.s,self.r
+        return x
         
     def isEmpty(self):
         return self.size()==0
