@@ -3,7 +3,6 @@ class Node:
         self.data=data
         self.next=None
 
-
 def inputLL():
     llist=list(int(i) for i in input().split())
     head=None
@@ -30,28 +29,30 @@ def lengthLL(head):
 def bubble_sort(head):
     if head is None or head.next is None:
         return head
-    l=lengthLL(head)
-    i=j=0
-    while i<l-1:
-        j=0
+    n=lengthLL(head)
+    for i in range(n-1):
         prev=None
         curr=head
-        while j<l:
-            if curr and curr.next and curr.data>curr.next.data:
-                temp=curr.next
-                if prev is None:
-                    curr.next=curr.next.next
-                    temp.next=curr
-                    head=temp
-                elif prev is not None:
-                    curr.next=curr.next.next
-                    temp.next=curr
-                    prev.next=temp
+        nex=head.next
+        for j in range(n-1-i):
+            if prev is None and curr.data>nex.data:
+                curr.next=nex.next
+                nex.next=curr
+                head=nex
+                prev=head
+                curr=head.next
+                nex=head.next.next
+            elif nex.data<curr.data:
+                curr.next=nex.next
+                nex.next=curr
+                prev.next=nex
+                prev=nex
+                nex=curr.next
+            else:
+                prev=curr
+                curr=nex
+                nex=nex.next
             j+=1
-            prev=curr
-            if curr:
-                curr=curr.next
-        i+=1
     return head
 
 
