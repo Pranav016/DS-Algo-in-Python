@@ -1,3 +1,6 @@
+# maximum number of nodes in a tree of height h are (2^h -1) and minimum are h
+
+
 import queue
 from sys import stdin,setrecursionlimit
 
@@ -36,19 +39,18 @@ def levelOrderInput():
             q.put(rightChild)
     return root
 
-def printTreeDetailed(root):
+
+def HeightOfTree(root):
     if root is None:
-        return
-    print(root.data,end=": ")
-    if root.left:
-        print("L", root.left.data, end=", ")
-    if root.right:
-        print("R", root.right.data, end="")
-    print()
-    printTreeDetailed(root.left)
-    printTreeDetailed(root.right)
+        return 0
+    leftHeight=HeightOfTree(root.left)
+    rightHeight=HeightOfTree(root.right)
+    height=max(leftHeight,rightHeight)
+    return height+1
+
 
 # main
 setrecursionlimit(10**6)
 root=levelOrderInput()
-printTreeDetailed(root)
+print(HeightOfTree(root)) 
+    

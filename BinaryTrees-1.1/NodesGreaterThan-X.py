@@ -17,7 +17,7 @@ def levelOrderInput():
     if data!=-1:
         root=Node(data)
     else:
-        return 0
+        return None
     q=queue.Queue()
     q.put(root)
     while not q.empty():
