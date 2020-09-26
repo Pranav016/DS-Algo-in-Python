@@ -36,19 +36,14 @@ def levelOrderInput():
             q.put(rightChild)
     return root
 
-def printTreeDetailed(root):
+def printPreorder(root):
     if root is None:
         return
-    print(root.data,end=": ")
-    if root.left:
-        print("L", root.left.data, end=", ")
-    if root.right:
-        print("R", root.right.data, end="")
-    print()
-    printTreeDetailed(root.left)
-    printTreeDetailed(root.right)
+    print(root.data, end=" ")
+    printPreorder(root.left)
+    printPreorder(root.right)
 
 # main
 setrecursionlimit(10**6)
 root=levelOrderInput()
-printTreeDetailed(root)
+printPreorder(root)
