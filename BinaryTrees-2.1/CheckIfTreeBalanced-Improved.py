@@ -1,6 +1,4 @@
-# height of a balanced tree will be log.n hence the time complexity of this solution for a balanced tree will be O(n.log.n)
-# height of an unbalanced tree in worst case will be n hence the time complexity of this solution for an unbalanced tree will be O(n^2)
-
+# time complexity of this approach is O(n) for both best and worst case
 
 
 import queue
@@ -41,21 +39,20 @@ def levelOrderInput():
             q.put(rightChild)
     return root
 
-def height(root):
-    if root is None:
-        return 0
-    return 1 + max(height(root.left), height(root.right))
 
-def isBalanced(root):
+def checkBalanced(root):
     if root is None:
-        return True
-    lh=height(root.left)
-    rh=height(root.right)
-    if lh-rh > 1 or rh-lh > 1:
-        return False
-    return isBalanced(root.left) and isBalanced(root.right)
+        return 0,True
+    lh,leftBalanced=checkBalanced(root.left)
+    rh,rightBalanced=checkBalanced(root.right)
+    h=1 + max(lh,rh)
+    return h , leftBalanced and rightBalanced
 
 # main
 setrecursionlimit(10**6)
 root=levelOrderInput()
-print(isBalanced(root))
+print(checkBalanced(root)[1])
+# if checkBalanced(root)[1]:
+#     print("true")
+# else:
+#     print("false")
