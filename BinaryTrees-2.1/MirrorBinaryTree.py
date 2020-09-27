@@ -38,25 +38,39 @@ def levelOrderInput():
     return root
 
 
-def removeLeaf(root):
-    if root is None:
-        return None
-    if not root.left and not root.right:
-        return None
-    root.left=removeLeaf(root.left)
-    root.right=removeLeaf(root.right)
-    return root
-
-def inOrder(root):
+def mirrorTree(root):
     if root is None:
         return
-    inOrder(root.left)
-    print(root.data, end=" ")
-    inOrder(root.right)
+    mirrorTree(root.left)
+    mirrorTree(root.right)
+    if root.left and root.right:
+        temp=root.left
+        root.left=root.right
+        root.right=temp
+        return
+    else:
+        return
 
+
+def printLevelATNewLine(root):
+    if root==None:
+        return
+    inputQ = queue.Queue()
+    outputQ = queue.Queue()
+    inputQ.put(root)
+    while not inputQ.empty():
+        while not inputQ.empty():
+            curr = inputQ.get()
+            print(curr.data, end=' ')
+            if curr.left!=None:
+                outputQ.put(curr.left)
+            if curr.right!=None:
+                outputQ.put(curr.right)
+        print()
+        inputQ, outputQ = outputQ, inputQ
 
 # main
 setrecursionlimit(10**6)
 root=levelOrderInput()
-root=removeLeaf(root)
-inOrder(root)
+mirrorTree(root)
+printLevelATNewLine(root)
