@@ -5,19 +5,19 @@ class BinaryTreeNode:
         self.left = None
         self.right = None
 
-def buildTreePreOrder(preorder, inorder):
-    if not inorder or not preorder:
+def buildTreePostOrder(postorder, inorder):
+    if not inorder or not postorder:
         return None
-    root_data=preorder[0]
+    root_data=postorder[-1]
+    root=BinaryTreeNode(root_data)
     x=inorder.index(root_data)
     leftInOrder=inorder[:x]
     rightInOrder=inorder[x+1:]
     l=len(leftInOrder)
-    leftPreOrder=preorder[1:l+1]
-    rightPreOrder=preorder[l+1:]
-    root=BinaryTreeNode(root_data)
-    root.left=buildTreePreOrder(leftPreOrder,leftInOrder)
-    root.right=buildTreePreOrder(rightPreOrder,rightInOrder)
+    leftPostOrder=postorder[:l]
+    rightPostOrder=postorder[l:-1]
+    root.left=buildTreePostOrder(leftPostOrder,leftInOrder)
+    root.right=buildTreePostOrder(rightPostOrder,rightInOrder)
     return root
 
 
@@ -40,7 +40,7 @@ def printLevelATNewLine(root):
 
 # Main
 n=int(input())
-preorder = [int(i) for i in input().strip().split()]
+postorder = [int(i) for i in input().strip().split()]
 inorder = [int(i) for i in input().strip().split()]
-root = buildTreePreOrder(preorder, inorder)
+root = buildTreePostOrder(postorder, inorder)
 printLevelATNewLine(root)
