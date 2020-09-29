@@ -28,9 +28,9 @@ def bracketReversal(s):
     while stack:
         x=stack.pop()
         y=stack.pop()
-        if x==y:
+        if x==y: # if brackets are equal then we just have to reverse one of them
             c+=1
-        elif x=='{' and y=='}':
+        elif x=='{' and y=='}': # on top of stack there was '{' and below it was '}' hence we have to reverse both there brackets
             c+=2
     return c
 
