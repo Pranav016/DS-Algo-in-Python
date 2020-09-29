@@ -52,13 +52,13 @@ def kReverse(head,i):
     x=i
     h1=head
     t1=head
-    while x>1 and t1.next is not None:
+    while x>1 and t1.next is not None: # you take out the linked list of length k
         t1=t1.next
         x-=1
-    newHead=t1.next
+    newHead=t1.next # assign newHead to the head of the remaining linked list
     t1.next=None
-    h1,t1=reverseLL(h1)
-    t1.next=kReverse(newHead,i)
+    h1,t1=reverseLL(h1) # we reverse the linked list of length k
+    t1.next=kReverse(newHead,i) # hit the base case and return the head of the reversed linked lists to be attached to the tail of the previously reversed linked lists
     return h1
 
 def printLL(head):
