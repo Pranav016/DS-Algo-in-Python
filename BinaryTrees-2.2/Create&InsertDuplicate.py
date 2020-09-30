@@ -1,3 +1,5 @@
+# Given a Binary Tree with N number of nodes, for each node create a new duplicate node, and insert that duplicate as left child of the original node.
+
 import queue
 class BinaryTreeNode:
     def __init__(self, data):

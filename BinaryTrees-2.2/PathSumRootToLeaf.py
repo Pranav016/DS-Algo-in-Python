@@ -17,15 +17,11 @@ def rootToLeafPathsSumToK(root, k, lst):
     k=k-a
     if root.left is None and root.right is None:
         if k==0:
-            for i in range(len(lst)):
-                if i<len(lst)-1:
-                	print(lst[i],end=" ")
-                else:
-                	print(lst[i])
-        
+            print(*lst)
+
         lst.pop()
-        
         return
+
     else:
         rootToLeafPathsSumToK(root.left, k, lst)
         rootToLeafPathsSumToK(root.right, k, lst)
