@@ -46,6 +46,8 @@ def checkBalanced(root):
     lh,leftBalanced=checkBalanced(root.left)
     rh,rightBalanced=checkBalanced(root.right)
     h=1 + max(lh,rh)
+    if lh-rh>1 or rh-lh>1:
+        return h,False
     return h , leftBalanced and rightBalanced
 
 # main

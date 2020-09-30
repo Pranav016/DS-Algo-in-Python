@@ -43,13 +43,10 @@ def mirrorTree(root):
         return
     mirrorTree(root.left)
     mirrorTree(root.right)
-    if root.left and root.right:
-        temp=root.left
-        root.left=root.right
-        root.right=temp
-        return
-    else:
-        return
+    temp=root.left
+    root.left=root.right
+    root.right=temp
+    return
 
 
 def printLevelATNewLine(root):
