@@ -4,32 +4,20 @@ class BinaryTreeNode:
         self.data=data
         self.left=None
         self.right=None
-    
-def minimumNode(root):
-    if root is None:
-        return 1000000
-    leftMin=minimumNode(root.left)
-    rightMin=minimumNode(root.right)
-    return min(root.data,leftMin, rightMin)
-
-def maximumNode(root):
-    if root is None:
-        return -1000000
-    leftMax=maximumNode(root.left)
-    rightMax=maximumNode(root.right)
-    return max(root.data,leftMax,rightMax)
 
 def isBST(root):
     if root is None:
-        return True
-    leftMax=maximumNode(root.left)
-    rightMin=minimumNode(root.right)
+        return 1000000,-1000000,True
+    leftMin,leftMax,isLeftBST=isBST(root.left)
+    rightMin,rightMax,isRightBST=isBST(root.right)
+    minimum=min(leftMin,rightMin,root.data)
+    maximum=max(leftMax,rightMax,root.data)
+    isTreeBST=True
     if root.data<=leftMax or root.data>rightMin:
-        return False
-    
-    leftBST=isBST(root.left)
-    rightBST=isBST(root.right)
-    return leftBST and rightBST
+        isTreeBST=False
+    if not isLeftBST or not isRightBST:
+        isTreeBST=False
+    return minimum,maximum,isTreeBST
 
 
 def buildLevelTree(levelorder):
@@ -61,4 +49,4 @@ def buildLevelTree(levelorder):
 # Main
 levelOrder = [int(i) for i in input().strip().split()]
 root = buildLevelTree(levelOrder)
-print(isBST(root))
+print(isBST(root)[2])
