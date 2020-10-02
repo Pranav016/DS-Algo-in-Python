@@ -5,6 +5,11 @@ class BinaryTreeNode:
         self.left=None
         self.right=None
 
+
+# the logic behind this solution is that for the root the range would be negative inf to positive inf
+# for the left subtree, the root.data should be less than root.data-1 and greater than negative inf
+# for the right subtree, the root.data should be less than positive inf and greater than root.data+1
+
 def isBST(root,minimum,maximum): 
     if root is None:
         return True
