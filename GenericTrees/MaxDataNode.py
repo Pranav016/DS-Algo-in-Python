@@ -4,14 +4,31 @@ class treeNode:
         self.children = []
     def __str__(self):
         return str(self.data)
-
-def sumOfNodes(root):
+    
+# Method 1
+def maxDataNode1(tree):
+    if not tree:
+        return None
+    maxNode=tree
+    for child in tree.children:
+        temp=maxDataNode1(child)
+        if temp.data>maxNode.data:
+            maxNode=temp
+    return maxNode  
+   
+# Method 2
+maxNode=None
+def maxDataNode2(root):
+    global maxNode
     if root is None:
-        return 0
-    sum=root.data
+        return None
+    if not maxNode:
+        maxNode=root
+    elif root.data>maxNode.data:
+        maxNode=root
     for child in root.children:
-        sum=sum+sumOfNodes(child) # reaches the base case and returns the sum that is then added
-    return sum
+        maxDataNode2(child)
+    return maxNode
 
 def createLevelWiseTree(arr):
     root = treeNode(int(arr[0]))
@@ -32,4 +49,4 @@ def createLevelWiseTree(arr):
 # Main
 arr = list(int(x) for x in input().strip().split(' '))
 root = createLevelWiseTree(arr)
-print(sumOfNodes(root))
+print(maxDataNode1(root).data)
