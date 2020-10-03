@@ -11,7 +11,6 @@ def treeHeight(root):
     maxHeight=0
     for child in root.children:
         childHeight=treeHeight(child)
-        print(childHeight," ",maxHeight)
         if childHeight>maxHeight:
             maxHeight=childHeight
     return 1+maxHeight
