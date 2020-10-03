@@ -1,1 +1,0 @@
-Here Generic Trees are different from binary trees and BSTs because binary trees can only have 2 children whereas Generic Trees can have any number of children.
