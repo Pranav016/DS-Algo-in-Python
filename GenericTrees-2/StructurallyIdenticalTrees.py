@@ -1,3 +1,11 @@
+# Given two Generic trees, return true if they are structurally identical i.e. they are made of nodes with the same values arranged in the same way.
+
+# Sample Input 2 :
+# 10 3 20 30 40 2 40 50 0 0 0 0 
+# 10 3 2 30 40 2 40 50 0 0 0 0
+# Sample Output 2:
+# false
+
 class treeNode:
     def __init__(self, data):
         self.data = data
