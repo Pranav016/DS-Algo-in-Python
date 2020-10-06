@@ -16,6 +16,16 @@ class Map:
     def getIndex(self,hc):
         return (abs(hc)%(self.bucketSize))
 
+    def rehash(self):
+        temp=self.bucket
+        self.bucketSize=self.bucketSize*2
+        self.bucket=[None for i in range(self.bucketSize)]
+        self.count=0
+        for head in temp:
+            while head is not None:
+                self.insert(head.key,head.value)
+                head=head.next
+
     def insert(self,key,value):
         hc=hash(key)
         index=self.getIndex(hc)
@@ -30,6 +40,9 @@ class Map:
         newNode.next=head
         self.bucket[index]=newNode
         self.count+=1
+        loadFactor=self.count/self.bucketSize
+        if loadFactor>=0.7:
+            self.rehash()
 
     def getValue(self,key):
         hc=hash(key)
@@ -64,13 +77,7 @@ class Map:
 
 # main
 m=Map()
-m.insert("Pranav1",10)
-m.insert("Pranav2",20)
-print("Size- ",m.size())
-m.insert("Pranav3",30)
-m.insert("Pranav2",40)
-print("Size- ",m.size())
-print("Search Value for 'Pranav2'- ",m.getValue("Pranav2"))
-print("Search Value for 'Pranav3'- ",m.getValue("Pranav3"))
-print("Remove 'Pranav3'- ",m.remove("Pranav3"))
-print(m.getValue("Pranav3"))
+for i in range(10):
+    m.insert("abc"+str(i),i+1)
+for i in range(10):
+    print(m.getValue("abc"+str(i)))
