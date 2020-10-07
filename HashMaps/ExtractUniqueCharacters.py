@@ -1,24 +1,17 @@
-def uniqueChars(string):
-    d={}
-    for w in string:
-        d[w]=d.get(w,0)+1
-    u={}
-    for w in d.keys():
-        if d[w]>1:
-            u[w]=abs(1-d[w])
-    l=len(string)-1
-    newString=[]
-    while l>=0:
-        y=u.get(string[l],0)
-        if y>0:
-            u[string[l]]=u[string[l]]-1
-        else:
-            newString.append(string[l])
-        l-=1
-    newString.reverse()
-    return newString
+# Given a string, you need to remove all the duplicates. That means, the output string should contain each character only once. The respective order of characters should remain same.
 
-# Main
+
+
+def uniqueChars(string):
+    ans = ''
+    
+    d={}
+    for i in string:
+        if i not in d:
+            ans = ans + i
+            d[i] = True
+    return ans
+
+# main
 string = input()
-for i in uniqueChars(string):
-    print(i,end="")
+print(uniqueChars(string))
