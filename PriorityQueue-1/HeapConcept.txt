@@ -1,0 +1,19 @@
+Heap is stored in an array which we visualize as a Complete Binary Tree(CBT). We use mathematical relations in the array to identify the Parent and the Child index.
+Let i be the index of the Parent Node. Then,
+
+1st Child Index or CI1 =2*i+1
+2nd Child Index or CI2 =2*i+2
+
+Parent Node= (CI1-1)//2
+or 
+(CI2-1)//2
+
+Heap Order Property- 
+Min Heap- 
+Every Node is less than its children
+
+Max Heap- 
+Every Node is greater than its children
+
+
+** For insertion and deletion we need to maintain the Heap Order property and Heapify or perform Heapification when heap order property is violated.
