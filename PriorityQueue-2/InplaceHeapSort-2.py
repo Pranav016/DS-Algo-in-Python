@@ -1,4 +1,4 @@
-# this approach has complexity O(n)
+# this approach has complexity O(n) and space complexity is O(1)
 
 
 def heapify(lst,i,n):

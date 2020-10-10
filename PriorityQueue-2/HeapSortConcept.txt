@@ -8,3 +8,6 @@ Heapify can be done in 2 directions-
 
 then we can take out the top elements/ min elements from this heap.
 Then we replace it with the last element of the heap and call the heapify function again to get the min element at the top again.
+
+Time complexity is O(n.logn)
+Space Complexity is O(n) and can also be done in O(1)
