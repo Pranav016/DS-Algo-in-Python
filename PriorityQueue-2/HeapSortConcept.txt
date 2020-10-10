@@ -1,0 +1,10 @@
+In Heap Sort we use the Heap Order property.
+In case we are using the Min Heap for Heap Sort then the Heap order property states that a node should be smaller than its children. We mainly check for its children not its grand children or further.
+
+This operation is called Heapify for which I have made a function heapify.
+Heapify can be done in 2 directions-
+1) Heapify-Up
+2) Heapify-Down
+
+then we can take out the top elements/ min elements from this heap.
+Then we replace it with the last element of the heap and call the heapify function again to get the min element at the top again.
