@@ -1,3 +1,6 @@
+# Method 2 is better 
+
+
 import sys
 
 # Method 1
@@ -61,4 +64,4 @@ sys.setrecursionlimit(1000000)
 n=int(input())
 dp=[-1 for i in range(n+1)]
 dp[0]=dp[1]=0
-print(minStepsA(n,dp))
+print(minStepsB(n,dp))
