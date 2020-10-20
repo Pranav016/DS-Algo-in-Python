@@ -10,10 +10,10 @@ def mcp(mat,i,j,n,m):
     if i==n-1 and j==m-1:
         return mat[i][j]
 
-    costDown=mcp(mat,i+1,j,n,m)
-    costUp=mcp(mat,i,j+1,n,m)
+    costRight=mcp(mat,i+1,j,n,m)
+    costDown=mcp(mat,i,j+1,n,m)
     costDiagonal=mcp(mat,i+1,j+1,n,m)
-    costAtPos=mat[i][j]+min(costDown,costUp,costDiagonal)
+    costAtPos=mat[i][j]+min(costRight,costDown,costDiagonal)
     return costAtPos
     
 

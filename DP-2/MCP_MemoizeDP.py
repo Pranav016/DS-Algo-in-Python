@@ -11,19 +11,19 @@ def mcp(mat,i,j,n,m,dp):
         return sys.maxsize
 
     if dp[i+1][j]!=sys.maxsize:
-        costDown=dp[i+1][j]
+        costRight=dp[i+1][j]
     else:
-        costDown=mcp(mat,i+1,j,n,m,dp)
+        costRight=mcp(mat,i+1,j,n,m,dp)
 
     if dp[i][j+1]!=sys.maxsize:
-        costUp=dp[i][j+1]
+        costDown=dp[i][j+1]
     else:
-        costUp=mcp(mat,i,j+1,n,m,dp)
+        costDown=mcp(mat,i,j+1,n,m,dp)
     if dp[i+1][j+1]!=sys.maxsize:
         costDiagonal=dp[i+1][j+1]
     else:
         costDiagonal=mcp(mat,i+1,j+1,n,m,dp)
-    minCostAtPos=mat[i][j]+min(costDown,costUp,costDiagonal)
+    minCostAtPos=mat[i][j]+min(costRight,costDown,costDiagonal)
     dp[i][j]=minCostAtPos
     return dp[i][j]
     
