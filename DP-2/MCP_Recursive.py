@@ -4,7 +4,7 @@ import sys
 
 def mcp(mat,i,j,n,m):
     
-    if i==n or j==m:
+    if i>=n or j>=m:
         return sys.maxsize
 
     if i==n-1 and j==m-1:
