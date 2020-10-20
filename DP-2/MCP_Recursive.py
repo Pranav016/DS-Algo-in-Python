@@ -2,28 +2,33 @@
 
 import sys
 
-def mic(i,j,m,n,lst):
+def mcp(mat,i,j,n,m):
     
-    # corner case
-    if i==m-1 and j==n-1:
-        return lst[i][j]
-
-    # base case
-    if i>=m or j>=n:
+    if i==n or j==m:
         return sys.maxsize
 
-    # options
-    a=mic(i+1,j,m,n,lst)
-    b=mic(i,j+1,m,n,lst)
-    c=mic(i+1,j+1,m,n,lst)
+    if i==n-1 and j==m-1:
+        return mat[i][j]
 
-    ans=lst[i][j]+min(a,b,c)
-    return ans
+    costDown=mcp(mat,i+1,j,n,m)
+    costUp=mcp(mat,i,j+1,n,m)
+    costDiagonal=mcp(mat,i+1,j+1,n,m)
+    costAtPos=mat[i][j]+min(costDown,costUp,costDiagonal)
+    return costAtPos
     
+
+def take2DInput() :
+    li = sys.stdin.readline().rstrip().split(" ")
+    nRows = int(li[0])
+    mCols = int(li[1])
+    
+    if nRows == 0 :
+        return list(), 0, 0
+    
+    mat = [list(map(int, input().strip().split(" "))) for row in range(nRows)]
+    return mat, nRows, mCols
 
 
 # main
-m,n=map(int, input().split())
-lst=[[3,4,1,2],[2,1,8,9],[4,7,8,1]]
-ans=mic(0,0,m,n,lst)
-print(ans)
+mat,n,m=take2DInput()
+print(mcp(mat,0,0,n,m))
