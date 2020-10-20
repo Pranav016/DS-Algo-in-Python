@@ -2,6 +2,8 @@
 
 import sys
 
+# Bottom Up Approach
+
 def mcp(mat,i,j,n,m,dp):
     for i in range(n-1,-1,-1):
         for j in range(m-1,-1,-1):
@@ -15,6 +17,7 @@ def mcp(mat,i,j,n,m,dp):
 
     return dp[0][0]
 
+# Top Down Approach
 
 # def mcp2(mat,i,j,n,m,dp):
 #     for i in range(n):
