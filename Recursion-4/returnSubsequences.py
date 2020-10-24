@@ -6,11 +6,11 @@ def subsequences(string):
         output=[""]
         return output
 
-    smallOutput=string[1:]
-    smallOutput=subsequences(smallOutput)# hit the base case to get the smaller problem that is a single element in the string and work upon that
+    smallOutput=string[1:] # smaller string
+    smallOutput=subsequences(smallOutput) # assume that recursion will do the work so just hit the base case, get the smallest string and work on that
     output=[]
     for ele in smallOutput:
-        output.append(ele) # copying elements of the returned list to the output
+        output.append(ele) # copying elements of the returned list to the output without string[0]
     for ele in smallOutput:
         output.append(string[0]+ele) # copying elements of the returned list with the element string[0]
     return output
