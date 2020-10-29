@@ -1,5 +1,5 @@
 # Graphs-
-1. Adjascent vertices-  If two vertices are connected through the same edge then they are called adjascent vertices.
+1. Adjacent vertices-  If two vertices are connected through the same edge then they are called adjacent vertices.
 
 1. Degree of a vertex- The number of edges connected to that vertex is called the Degree of that vertex.
 
