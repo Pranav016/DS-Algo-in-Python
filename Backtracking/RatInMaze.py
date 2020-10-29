@@ -12,12 +12,13 @@
 
 def printPathHelper(i,j,maze,n,solution):
     if i==n-1 and j==n-1:
+        print()
         solution[i][j]=1
         for i in range(n):
             for j in range(n):
                 print(solution[i][j],end=" ")
             print()
-        print()
+        solution[i][j]=0
         return
 
     if i<0 or j<0 or i>=n or j>=n or maze[i][j]==0 or solution[i][j]==1:
