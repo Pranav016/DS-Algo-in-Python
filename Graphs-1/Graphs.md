@@ -19,3 +19,10 @@
 ### Max edges in a connected graph having n vertices = (n)*(n-1)*(n-2)*(n-3)....(1)
 ### = (n*(n-1))/2
 ### = O(n^2) which is the worst case complexity for any operation along the edge.
+
+
+# Storing the GRAPH-
+
+## Adjacency list- For an adjacency list we can make a hashmap for each vertex as a key and all its adjacent vertices as its values.
+
+## Adjacency matrix- We can store our graph in a n X n Adjacency matrix of zero's. For each pair of nodes having an edge, we put 1 at position of the indexes in the adjacency martix
