@@ -6,12 +6,6 @@ def isSafeToPut(i,j,n,solution):
             return False
         k-=1
 
-    k=j+1
-    while k<n:
-        if solution[i][k]:
-            return False
-        k+=1
-
     row=i-1
     col=j-1
     while row>=0 and col>=0:
