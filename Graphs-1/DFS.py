@@ -29,7 +29,7 @@ class Graph:
         print(sv)
         visited[sv]=True
         for i in range(self.vertices):
-            if self.adjMatrix[sv][i]==1 and visited[i]==False: # we are checking self.adjMatrix[sv][i] and not self.adjMatrix[i][sv] because for example sv=0 and we found self.adjMatrix[sv][i]==1 for i=2 then we call on i which prints 2 then 
+            if self.adjMatrix[sv][i]==1 and visited[i]==False: # for example if 0-2 is an edge then we check at self.adjMatrix[0][j] which will be 1 for j=2 and then we call for sv=2, we skip the call for j=0 in 2 becuase the visited[0] will be False. 
                 self.dfsHelper(i,visited)
             
 
