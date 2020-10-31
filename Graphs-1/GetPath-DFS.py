@@ -1,4 +1,4 @@
-# prolem statement- we have to print the path between two given vertices
+# prolem statement- we have to print the path between two given vertices using the DFS (Depth First Search) Algorithm
 
 class Graph:
     def __init__(self,vertices):

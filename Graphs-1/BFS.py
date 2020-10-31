@@ -38,10 +38,10 @@ class Graph:
 
 
     def bfs(self):
-            visited=[False for j in range(self.vertices)]
-            for i in range(self.vertices): # we are doing this becuase there might be vertices in a graph that don't have any edges/ not connected to any other vertice
-                if visited[i] is False:
-                    self.bfsHelper(i,visited)
+        visited=[False for j in range(self.vertices)]
+        for i in range(self.vertices): # we are doing this becuase there might be vertices in a graph that don't have any edges/ not connected to any other vertice
+            if visited[i] is False:
+                self.bfsHelper(i,visited)
 
 
 # main
