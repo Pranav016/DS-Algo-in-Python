@@ -34,6 +34,7 @@ class Graph:
                 if self.adjMatrix[cur][i]>0 and visited[i] is False:
                     path[i]=cur
                     if i==ev:
+                        print(ev,end=" ")
                         return True
                     q.put(i)
                     visited[i]=True
@@ -42,8 +43,6 @@ class Graph:
     def bfs(self,sv,ev):
         visited=[False for j in range(self.vertices)]
         path=dict()
-        # for i in range(self.vertices):
-        #     if visited[i] is False:
         if self.bfsHelper(sv,ev,visited,path) is True:
             return path
         return dict()
@@ -60,8 +59,6 @@ if v>0 and e>0:
     sv,ev=map(int,input().split())
     path=g.bfs(sv,ev)
     x=path.get(ev,-1)
-    if x!=-1:
-        print(ev,end=" ")
     while x!=-1:
         print(x,end=" ")
         x=path.get(x,-1)
