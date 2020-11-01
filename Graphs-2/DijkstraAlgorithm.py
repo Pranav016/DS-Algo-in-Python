@@ -58,7 +58,7 @@ class Graph:
             # Put the minimum distance vertex in the  
             # shotest path tree 
             sptSet[u] = True
-   
+            i+=1
             # Update dist value of the adjacent vertices  
             # of the picked vertex only if the current  
             # distance is greater than new distance and 
